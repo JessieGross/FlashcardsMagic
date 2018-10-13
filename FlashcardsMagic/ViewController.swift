@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
-
+    @IBOutlet weak var thinkEmoji: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         frontLabel.isHidden = true
+        thinkEmoji.isHidden = true
     }
     
 }
