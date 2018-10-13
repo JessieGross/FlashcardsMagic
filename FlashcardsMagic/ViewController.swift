@@ -54,8 +54,14 @@ class ViewController: UIViewController {
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         // When the card, frontLabel, is tapped hide it from the user to reveal the back of card, backLabel.
-        //frontLabel.isHidden = true
-        //thinkEmoji.isHidden = true
+        if frontLabel.isHidden == false {
+            frontLabel.isHidden = true
+            thinkEmoji.isHidden = true
+        }
+        else {
+            frontLabel.isHidden = false
+            thinkEmoji.isHidden = false
+        }
     }
     
     @IBAction func didTapOptionOne(_ sender: Any) {

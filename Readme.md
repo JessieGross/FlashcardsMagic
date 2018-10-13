@@ -1,7 +1,7 @@
 ## FlashcardsMagic
 
 ### App Description
-An interactive app where the user gets quizzed on how old is the universe. When the user is ready to check the answer, the user simply clicks on the flashcard to reveal it.
+An interactive app where the user gets quizzed on how old is the universe. When the user is ready to check the answer, the user can simply click on the flashcard to reveal it or choose from the multiple choice questions.
 
 ### App Walk-though
 
@@ -15,6 +15,6 @@ An interactive app where the user gets quizzed on how old is the universe. When 
 - [x] Build in logic to show the answer side when the card is tapped
 - [x] Push code to GitHub
 ## Optional
-- [ ] Toggle the flashcard between the question side and the answer side
-- [ ] Style the question and answer side of the card to better distinguish between the two sides
-- [ ] Add selectable multiple choice answers beneath the card
+- [x] Toggle the flashcard between the question side and the answer side
+- [x] Style the question and answer side of the card to better distinguish between the two sides
+- [x] Add selectable multiple choice answers beneath the card
