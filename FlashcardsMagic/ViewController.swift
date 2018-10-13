@@ -13,15 +13,64 @@ class ViewController: UIViewController {
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var thinkEmoji: UILabel!
+    @IBOutlet weak var card: UIView!
     
+    @IBOutlet weak var btnOptionOne: UIButton!
+    @IBOutlet weak var btnOptionTwo: UIButton!
+    @IBOutlet weak var btnOptionThree: UIButton!
+    
+    
+    
+    // func that automatically gets called by iOS as soon as the app is opened.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // round the corners of the card by rounding the labels
+        card.layer.cornerRadius = 20.0
+        frontLabel.layer.cornerRadius = 20.0
+        backLabel.layer.cornerRadius = 20.0
+        btnOptionOne.layer.cornerRadius = 20.0
+        btnOptionTwo.layer.cornerRadius = 20.0
+        btnOptionThree.layer.cornerRadius = 20.0
+        
+        // clip the labels
+        frontLabel.clipsToBounds = true
+        backLabel.clipsToBounds = true
+        
+        // add shadow to to the card.
+        card.layer.shadowRadius = 15.0
+        card.layer.shadowOpacity = 10.2
+        
+        // button borders
+        btnOptionOne.layer.borderWidth = 3.0
+        btnOptionOne.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
+        btnOptionTwo.layer.borderWidth = 3.0
+        btnOptionTwo.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
+        btnOptionThree.layer.borderWidth = 3.0
+        btnOptionThree.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
+        
     }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
+        // When the card, frontLabel, is tapped hide it from the user to reveal the back of card, backLabel.
+        //frontLabel.isHidden = true
+        //thinkEmoji.isHidden = true
+    }
+    
+    @IBAction func didTapOptionOne(_ sender: Any) {
+        btnOptionOne.isHidden = true
+    }
+    
+    @IBAction func didTapOptionTwo(_ sender: Any) {
         frontLabel.isHidden = true
         thinkEmoji.isHidden = true
+        btnOptionOne.isHidden = true
+        btnOptionThree.isHidden = true
+    }
+    
+    @IBAction func didTapOptionThree(_ sender: Any) {
+        btnOptionThree.isHidden = true
     }
     
 }
