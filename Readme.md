@@ -5,7 +5,7 @@ An interactive app where the user gets quizzed on how old is the universe. When 
 
 ### App Walk-though
 
-<img src="https://giphy.com/gifs/YXhAtssrYEKrCrZytM" width=200><br>
+<img src="https://github.com/JessieGross/FlashcardsMagic/blob/master/AppDemo.gif" width=200><br>
 
 
 ## Required
