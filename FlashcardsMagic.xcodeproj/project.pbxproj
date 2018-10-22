@@ -12,6 +12,7 @@
 		F3B5C2C42171AA95006C9C6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B5C2C22171AA95006C9C6A /* Main.storyboard */; };
 		F3B5C2C62171AA98006C9C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B5C2C52171AA98006C9C6A /* Assets.xcassets */; };
 		F3B5C2C92171AA98006C9C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B5C2C72171AA98006C9C6A /* LaunchScreen.storyboard */; };
+		F3F2DE34217D61C100152BE2 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2DE33217D61C100152BE2 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F3B5C2C52171AA98006C9C6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3B5C2C82171AA98006C9C6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3B5C2CA2171AA98006C9C6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3F2DE33217D61C100152BE2 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				F3B5C2BE2171AA95006C9C6A /* AppDelegate.swift */,
 				F3B5C2C02171AA95006C9C6A /* ViewController.swift */,
 				F3B5C2C22171AA95006C9C6A /* Main.storyboard */,
+				F3F2DE33217D61C100152BE2 /* CreationViewController.swift */,
 				F3B5C2C52171AA98006C9C6A /* Assets.xcassets */,
 				F3B5C2C72171AA98006C9C6A /* LaunchScreen.storyboard */,
 				F3B5C2CA2171AA98006C9C6A /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				F3B5C2C12171AA95006C9C6A /* ViewController.swift in Sources */,
 				F3B5C2BF2171AA95006C9C6A /* AppDelegate.swift in Sources */,
+				F3F2DE34217D61C100152BE2 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,6 +51,20 @@ class ViewController: UIViewController {
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
         
     }
+    
+    // A func that will get called automatically on this controller and it will get called right before doing the presentation.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let creationController = navigationController.topViewController as! CreationViewController
+        creationController.flashcardsController = self
+        
+        // Updates this func with the initial values instead of setting the text field's text directly.
+        
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = frontLabel.text
+            creationController.initialAnswer = backLabel.text
+        }
+    }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         // When the card, frontLabel, is tapped hide it from the user to reveal the back of card, backLabel.
@@ -77,6 +91,11 @@ class ViewController: UIViewController {
     
     @IBAction func didTapOptionThree(_ sender: Any) {
         btnOptionThree.isHidden = true
+    }
+    
+    func updateFlashcard(question: String, answer: String) {
+        frontLabel.text = question
+        backLabel.text = answer
     }
     
 }
