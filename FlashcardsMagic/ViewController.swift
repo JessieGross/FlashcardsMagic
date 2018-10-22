@@ -108,6 +108,10 @@ class ViewController: UIViewController {
         btnOptionOne.setTitle(extraAnswerTwo, for: .normal)
         btnOptionTwo.setTitle(answer, for: .normal)
         btnOptionThree.setTitle(extraAnswerOne, for: .normal)
+        
+        // reset the buttons to appear everytime the user edits the flashcards
+        btnOptionOne.isHidden = false
+        btnOptionThree.isHidden = false
     }
     
 }
