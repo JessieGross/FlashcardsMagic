@@ -203,6 +203,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="answerTextField" destination="mfW-U3-7bm" id="i2Q-R5-La1"/>
+                        <outlet property="extraAnsOneTextField" destination="Tys-lX-srj" id="ARV-af-TZ7"/>
+                        <outlet property="extraAnsTwoTextField" destination="Zy4-kz-Eig" id="fZC-Th-pUd"/>
                         <outlet property="questionTextField" destination="cat-Ov-7QO" id="U78-rl-lbD"/>
                     </connections>
                 </viewController>

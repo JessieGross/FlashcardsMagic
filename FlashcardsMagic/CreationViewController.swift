@@ -12,10 +12,13 @@ class CreationViewController: UIViewController {
 
     // To allow access to the flashcards view controller
     var flashcardsController: ViewController!
-    var alert: UIAlertController!
     
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
+    
+    @IBOutlet weak var extraAnsOneTextField: UITextField!
+    @IBOutlet weak var extraAnsTwoTextField: UITextField!
+    
     var initialQuestion: String? // ? allows nil in the string otherwise you are saying that there is something in the string with !
     var initialAnswer: String?
     
@@ -39,6 +42,10 @@ class CreationViewController: UIViewController {
         // Get the text in the answer text field
         let answerText = answerTextField.text
         
+        let extraAnsOneText = extraAnsOneTextField.text
+        
+        let extraAnsTwoText = extraAnsTwoTextField.text
+        
         // Check if empty
         if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
             let alert = UIAlertController(title: "Missing text!", message: "You need to enter both a question and an answer.", preferredStyle: .alert)
@@ -50,7 +57,7 @@ class CreationViewController: UIViewController {
         }
         else {
             // Call the function to update the flashcard
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraAnsOneText, extraAnswerTwo: extraAnsTwoText)
             
             // Dismiss
             dismiss(animated: true)

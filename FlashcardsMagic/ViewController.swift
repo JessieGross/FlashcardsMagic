@@ -93,9 +93,21 @@ class ViewController: UIViewController {
         btnOptionThree.isHidden = true
     }
     
-    func updateFlashcard(question: String, answer: String) {
+    func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?) {
         frontLabel.text = question
         backLabel.text = answer
+        
+        // shuffle the answer choices
+        // var choices = [answer, extraAnswerOne, extraAnswerTwo]
+        // choices.shuffle()
+        // btnOptionOne.setTitle(choices[0], for: .normal)
+        // btnOptionTwo.setTitle(choices[1], for: .normal)
+        // btnOptionThree.setTitle(choices[2], for: .normal)
+        
+        // Set the title on the 3 buttons to show the multiple choices
+        btnOptionOne.setTitle(extraAnswerTwo, for: .normal)
+        btnOptionTwo.setTitle(answer, for: .normal)
+        btnOptionThree.setTitle(extraAnswerOne, for: .normal)
     }
     
 }
