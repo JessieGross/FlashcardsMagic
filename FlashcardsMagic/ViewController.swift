@@ -54,12 +54,16 @@ class ViewController: UIViewController {
     
     // A func that will get called automatically on this controller and it will get called right before doing the presentation.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // The destination of the segue is the Navigation Controller
         let navigationController = segue.destination as! UINavigationController
+        
+        // The Navigation Controller only contains a Creation View Controller
         let creationController = navigationController.topViewController as! CreationViewController
+        
+        // Set the flashcardsController property to self
         creationController.flashcardsController = self
         
         // Updates this func with the initial values instead of setting the text field's text directly.
-        
         if segue.identifier == "EditSegue" {
             creationController.initialQuestion = frontLabel.text
             creationController.initialAnswer = backLabel.text
@@ -109,9 +113,11 @@ class ViewController: UIViewController {
         btnOptionTwo.setTitle(answer, for: .normal)
         btnOptionThree.setTitle(extraAnswerOne, for: .normal)
         
-        // reset the buttons to appear everytime the user edits the flashcards
+        // Reset the front label and buttons to appear everytime the user edits the flashcards
         btnOptionOne.isHidden = false
         btnOptionThree.isHidden = false
+        frontLabel.isHidden = false
+        thinkEmoji.isHidden = false
     }
     
 }

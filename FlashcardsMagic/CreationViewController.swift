@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// CreationViewController is a subset 
 class CreationViewController: UIViewController {
 
     // To allow access to the flashcards view controller
@@ -19,7 +19,7 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var extraAnsOneTextField: UITextField!
     @IBOutlet weak var extraAnsTwoTextField: UITextField!
     
-    var initialQuestion: String? // ? allows nil in the string otherwise you are saying that there is something in the string with !
+    var initialQuestion: String? // '?' allows nil in the string otherwise you are saying that there is something in the string with '!'
     var initialAnswer: String?
     
     override func viewDidLoad() {
@@ -29,8 +29,7 @@ class CreationViewController: UIViewController {
         questionTextField.text = initialQuestion
         answerTextField.text = initialAnswer
     }
-    
-
+    // Dismisses this current view controller to revert back to the previous one.
     @IBAction func didTapOnCancel(_ sender: Any) {
         dismiss(animated: true)
     }
