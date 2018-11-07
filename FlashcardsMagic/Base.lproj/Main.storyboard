@@ -139,6 +139,15 @@
                                                             <segue destination="gLU-wy-kn3" kind="show" identifier="EditSegue" id="jmL-B8-sty"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88W-Ix-P2a">
+                                                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <state key="normal" title="❌"/>
+                                                        <connections>
+                                                            <action selector="didTapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiY-NU-T4e"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -262,6 +271,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4OU-JM-a5V"/>
+        <segue reference="jmL-B8-sty"/>
     </inferredMetricsTieBreakers>
 </document>

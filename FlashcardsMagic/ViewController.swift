@@ -145,6 +145,26 @@ class ViewController: UIViewController {
         updateNextPrevButtons()
     }
     
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        
+        // Show confirmation
+        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteCurrentFlashCard()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        present(alert, animated: true)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+    }
+    
+    func deleteCurrentFlashCard() {
+        
+    }
     
     func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?) {
         // defines and assignes the flashcard variable to be the Flashcard struct type.
