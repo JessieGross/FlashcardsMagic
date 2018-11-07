@@ -8,6 +8,12 @@
 
 import UIKit
 
+// This struct enables the object flashcard to be declared as a 'Flashcard' struct type with two properties 'question' and 'answer'.
+struct Flashcard {
+    var question: String
+    var answer: String
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var frontLabel: UILabel!
@@ -19,7 +25,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnOptionTwo: UIButton!
     @IBOutlet weak var btnOptionThree: UIButton!
     
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
+    
+    // Array to store many flashcards. Do not confuse it with flashcard (singular) which is a Struct variable.
+    var flashcards = [Flashcard]()
+    
+    // Current flashxard index
+    var currentIndex = 0
     
     // func that automatically gets called by iOS as soon as the app is opened.
     override func viewDidLoad() {
@@ -49,6 +63,8 @@ class ViewController: UIViewController {
         btnOptionTwo.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
         btnOptionThree.layer.borderWidth = 3.0
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
+        
+        updateFlashcard(question: "How old is the universe?", answer: "13.8 billion years", extraAnswerOne: "4.5 billion years", extraAnswerTwo: "2,018 years")
         
     }
     
@@ -97,9 +113,37 @@ class ViewController: UIViewController {
         btnOptionThree.isHidden = true
     }
     
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        
+        // Decrease current index
+        currentIndex = currentIndex - 1
+        
+        // Update labels
+        updateLabels()
+        
+        // Update buttons
+        updateNextPrevButtons()
+    }
+    
+    @IBAction func didTapOnNext(_ sender: Any) {
+        
+        // Increase current index
+        currentIndex = currentIndex + 1
+        
+        // Update labels
+        updateLabels()
+        
+        // Update buttons
+        updateNextPrevButtons()
+    }
+    
+    
     func updateFlashcard(question: String, answer: String, extraAnswerOne: String?, extraAnswerTwo: String?) {
-        frontLabel.text = question
-        backLabel.text = answer
+        // defines and assignes the flashcard variable to be the Flashcard struct type.
+        let flashcard = Flashcard(question: question, answer: answer)
+        
+        //frontLabel.text = flashcard.question
+        //backLabel.text = flashcard.answer
         
         // shuffle the answer choices
         // var choices = [answer, extraAnswerOne, extraAnswerTwo]
@@ -118,6 +162,48 @@ class ViewController: UIViewController {
         btnOptionThree.isHidden = false
         frontLabel.isHidden = false
         thinkEmoji.isHidden = false
+        
+        // Adding flashcard in the flashcards array
+        flashcards.append(flashcard)
+        
+        // Logging to the console
+        print("➕ Added new flashcard ")
+        print("🐶 We have now \(flashcards.count) flashcards")
+        
+        // Update current index
+        currentIndex = flashcards.count - 1
+        print("🦁 Our current index is \(currentIndex)")
+        
+        // Update buttons
+        updateNextPrevButtons()
+        
+        // Update labels
+        updateLabels()
+    }
+    
+    func updateNextPrevButtons() {
+        // Disable next button if at the end
+        if currentIndex == flashcards.count - 1 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+        
+        // Disable prev button if at the beginning
+        if currentIndex == 0 {
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+        }
+    }
+    
+    func updateLabels() {
+        // Get current flashcard
+        let currentFlashcard = flashcards[currentIndex]
+        
+        // Update labels
+        frontLabel.text = currentFlashcard.question
+        backLabel.text = currentFlashcard.answer
     }
     
 }
