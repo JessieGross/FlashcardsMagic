@@ -64,8 +64,16 @@ class ViewController: UIViewController {
         btnOptionThree.layer.borderWidth = 3.0
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.05793678676, green: 0.8387394096, blue: 1, alpha: 1)
         
-        updateFlashcard(question: "How old is the universe?", answer: "13.8 billion years", extraAnswerOne: "4.5 billion years", extraAnswerTwo: "2,018 years")
+        // Read saved flashcards
+        readSavedFlashcards()
         
+        // Add initial or default flashcard if needed
+        if flashcards.count == 0 {
+            updateFlashcard(question: "How old is the universe?", answer: "13.8 billion years", extraAnswerOne: "4.5 billion years", extraAnswerTwo: "2,018 years")
+        } else { // Update info from the saved cards
+            updateLabels()
+            updateNextPrevButtons()
+        }
     }
     
     // A func that will get called automatically on this controller and it will get called right before doing the presentation.
@@ -204,6 +212,36 @@ class ViewController: UIViewController {
         // Update labels
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
+    }
+    
+    func saveAllFlashcardsToDisk() {
+
+        // From flashcard array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question": card.question, "answer": card.answer]
+        }
+        
+        // Save array on disk using UserDefaults
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
+        
+        // Log it
+        print("🎉 Flashcards saved to UserDefaults")
+    }
+    
+    func readSavedFlashcards() {
+        
+        // Read dictionary array from disk (if any)
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]] {
+            
+            // From dictionary array to flashcard array
+            let savedCards = dictionaryArray.map { dictionary -> Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)
+            }
+            
+            // Put all these cards in our flashcards array
+            flashcards.append(contentsOf: savedCards)
+            
+        }
     }
     
 }
