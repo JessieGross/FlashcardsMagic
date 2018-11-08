@@ -1,7 +1,7 @@
 ## FlashcardsMagic
 
 ### App Description
-An educational interactive app where the user gets to create flashcards, edit them, and check the answer. When the user is ready to reveal the correct answer, the user can simply click on the flashcard or choose from the multiple choice questions. This is a great companion for studying!
+An educational interactive app where the user gets to create flashcards, edit them, delete them, and save them for future use. When the user is ready to reveal the correct answer, the user can simply click on the flashcard or choose from the multiple choice questions. This is a great companion for studying!
 
 ### App Walk-though
 
@@ -9,11 +9,10 @@ An educational interactive app where the user gets to create flashcards, edit th
 
 
 ## Required
-- [x] User can open the creation screen
-- [x] User can cancel out of the creation screen
-- [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
 - [x] Push code to GitHub
 ## Optional
-- [x] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User can delete a flashcard
 - [x] User can edit existing flashcard
-- [x] User can add multiple choice answers in the creation screen
+- [x] User can store multiple choice questions
