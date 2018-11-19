@@ -78,6 +78,35 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Fist start with the flashcard invisible and slightly smaller in size
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        // Fist start with the multiple choice buttons invisible and slightly smaller in size
+        btnOptionOne.alpha = 0.0
+        btnOptionOne.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        btnOptionTwo.alpha = 0.0
+        btnOptionTwo.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        btnOptionThree.alpha = 0.0
+        btnOptionThree.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        // Animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: [], animations: {
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+            
+            self.btnOptionOne.alpha = 1.0
+            self.btnOptionOne.transform = CGAffineTransform.identity
+            self.btnOptionTwo.alpha = 1.0
+            self.btnOptionTwo.transform = CGAffineTransform.identity
+            self.btnOptionThree.alpha = 1.0
+            self.btnOptionThree.transform = CGAffineTransform.identity
+        })
+    }
+    
     // A func that will get called automatically on this controller and it will get called right before doing the presentation.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // The destination of the segue is the Navigation Controller
@@ -98,15 +127,83 @@ class ViewController: UIViewController {
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         // When the card, frontLabel, is tapped hide it from the user to reveal the back of card, backLabel.
-        if frontLabel.isHidden == false {
-            frontLabel.isHidden = true
-            thinkEmoji.isHidden = true
-        }
-        else {
-            frontLabel.isHidden = false
-            thinkEmoji.isHidden = false
+        flipFlashcard()
+    }
+    
+    func flipFlashcard() {
+        // Code that was in didTapOnFlashcard was moved here.
+        
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+            // Note: Need explicit "self." when referencing an IBOutlet
+            if self.frontLabel.isHidden == false {
+                self.frontLabel.isHidden = true
+                self.thinkEmoji.isHidden = true
+            }
+            else {
+                self.frontLabel.isHidden = false
+                self.thinkEmoji.isHidden = false
+            }
+        })
+    }
+    
+    // A func that animates the next card by animating the current card out
+    func animateCardOut() {
+        
+        // Animate to the left side of the screen
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Update labels
+            self.updateLabels()
+            
+            // Run other animation
+            self.animateCardIn()
+            
+        })
+    }
+    
+    // A func that animates the next card in
+    func animateCardIn() {
+        
+        // Start on the right side (don't animate this)
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        // Animate card going back to its original position
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
         }
     }
+    
+    // A func that animates the previous card by animating the current card out
+    func animateCardOut2() {
+        
+        // Animate to the right side of the screen
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Update labels
+            self.updateLabels()
+            
+            // Run other animation
+            self.animateCardIn2()
+            
+        })
+    }
+    
+    // A func that animates the previous card in
+    func animateCardIn2() {
+        
+        // Start on the right side (don't animate this)
+        card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        
+        // Animate card going back to its original position
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+
     
     @IBAction func didTapOptionOne(_ sender: Any) {
         btnOptionOne.isHidden = true
@@ -129,10 +226,13 @@ class ViewController: UIViewController {
         currentIndex = currentIndex - 1
         
         // Update labels
-        updateLabels()
+        //updateLabels()
         
         // Update buttons
         updateNextPrevButtons()
+        
+        // Animate the next card
+        animateCardOut2()
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
@@ -141,10 +241,13 @@ class ViewController: UIViewController {
         currentIndex = currentIndex + 1
         
         // Update labels
-        updateLabels()
+        //updateLabels()
         
         // Update buttons
         updateNextPrevButtons()
+        
+        // Animate the next card
+        animateCardOut()
     }
     
     @IBAction func didTapOnDelete(_ sender: Any) {
@@ -178,18 +281,6 @@ class ViewController: UIViewController {
             present(alert2, animated: true)
         }
         
-//        let alert = UIAlertController(title: "Delete flashcard", message: "Are you sure you want to delete it? 😨", preferredStyle: .actionSheet)
-//
-//        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in self.deleteCurrentFlashCard()
-//
-//        }
-//
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//
-//        present(alert, animated: true)
-//
-//        alert.addAction(deleteAction)
-//        alert.addAction(cancelAction)
     }
     
     func deleteCurrentFlashCard() {
