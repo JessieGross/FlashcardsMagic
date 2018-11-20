@@ -5,7 +5,7 @@ An educational interactive app where the user gets to create flashcards, edit th
 
 ### App Walk-though
 
-<img src="https://github.com/JessieGross/FlashcardsMagic/blob/master/AppDemo.gif" width=200><br>
+<img src="https://github.com/JessieGross/FlashcardsMagic/blob/master/AppDemo.gif" width=400><br>
 
 
 ## Required
