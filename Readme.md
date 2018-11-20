@@ -1,7 +1,7 @@
 ## FlashcardsMagic
 
 ### App Description
-An educational interactive app where the user gets to create flashcards, edit them, delete them, and save them for future use. When the user is ready to reveal the correct answer, the user can simply click on the flashcard or choose from the multiple choice answers. The correct answer will reveal the back of the card, the answer. Otherwise, the user has to try again. This is a great companion for studying!
+An educational interactive app where the user gets to create flashcards, edit them, delete them, and save them for future use. When the user is ready to reveal the correct answer, the user can simply click on the flashcard or choose from the multiple choice answers. The correct answer reveals the back of the card, the answer to the question. Otherwise, the user has to try again. This is a great companion for studying!
 
 ### App Walk-though
 
